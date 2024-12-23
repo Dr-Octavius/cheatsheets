@@ -1,0 +1,1165 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS3219</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  <style>
+    .stackedit {
+      margin: 0;
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    .stackedit__html {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 1.5px;
+      /* Creates 3 equal-width columns */
+      grid-auto-columns: 1fr;
+      max-width: 200%;
+    }
+
+    .katex--inline {
+      font-size: 9.5px;
+    }
+
+    .katex--display {
+      font-size: 8.5px;
+    }
+
+    .stackedit__html>div {
+      padding: 0;
+    }
+
+    .stackedit__html>div>ol,
+    .stackedit__html>div>ul {
+      padding-inline-start: 13px;
+      margin: 0;
+    }
+
+    .stackedit__html>div>p {
+      margin: 2px;
+    }
+
+    .stackedit__html>div>table>thead>tr>th {
+      margin: 0;
+      padding: 0;
+    }
+
+    .stackedit__html>div>table>tbody>tr>td {
+      margin: 0;
+      padding: 0;
+    }
+
+    .stackedit__html>div:last-child {
+      line-height: 1.15;
+    }
+  </style>
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+    <div>
+      <p><strong>1.1 Software Engineering Overview: Definition</strong></p>
+      <p><strong>IEEE Standard Glossary of Software Engineering Terminology</strong>: The app of a systematic,
+        disciplined, quantifiable approach to dev, operation, &amp; maintenance of software.</p>
+      <p><strong>1.2 Software Engineering Overview: Origins</strong></p>
+      <p>Sys engineering during WWII, focusing on building complex sys through work processes, optimisation
+        methods &amp; risk management</p>
+      <p><strong>1.3 Software Engineering Overview: Key Contributions</strong></p>
+      <p>Coined by Margaret Hamilton (1963–64) at MIT during Apollo missions. Aimed to elevate software to same
+        level of respect as hardware engineering. Gave legitimacy. <em><strong>NATO Software Engineering
+            Conferences (1968/69)</strong></em>: Friedrich L. Bauer addressed “software crisis”, proposed
+        systematic approaches to ensure reliability &amp; efficiency. <em><strong>1966 (ACM)</strong></em>:
+        Anthony Oettinger emphasised recognition of software engineering as engineering profession w/o
+        boundaries between “scientific” &amp; “Biz” apps. <em><strong>1972 Redefinition</strong></em>: Redefined
+        as establishment &amp; use of sound engineering principles to economically produce reliable software for
+        real machines</p>
+      <p><strong>1.4 Software Engineering Overview: Software Crisis 1.0</strong></p>
+      <p><em><strong>What?</strong></em>: Circa 1960s. Challenges in <strong>time, cost, &amp; quality</strong>
+        due to lack of scalable programming practices &amp; rapid increase in computational power.
+        <em><strong>Why?</strong></em>: Emergence of software complexity made traditional dev unmanageable.
+        Growth in computer power outpaced capabilities of software engineering. <strong>Edsger
+          Dijkstra</strong>: Early programming was manageable, but w more powerful computers, programming
+        became equally gigantic in complexity. <em><strong>Response</strong></em>: <strong>R&amp;D in Software
+          Engineering</strong>: <strong>1. Process models</strong>: Structured software dev methodologies.
+        <strong>2. Software Architecture</strong>: High-level design frameworks. <strong>3. Design principles
+          &amp; patterns</strong>: Standard solutions to common problems. <strong>4. Testing methods</strong>:
+        Systematic validation approaches. <strong>5. Software Design Patterns</strong>: Reusable design
+        templates for specific issues.
+      </p>
+      <p><strong>1.5 Software Engineering Overview: Software Crisis 2.0</strong></p>
+      <p><em><strong>What?</strong></em>: Modern Era. Disparity between available technological resources &amp;
+        ability to meet user expectations. Exponential growth in complexity of sys &amp; user demands
+        <em><strong>Why?</strong></em>: <strong>Push factors</strong>: Advances in hardware &amp; cost
+        reductions, proliferation of data &amp; devices. <strong>Pull factor</strong>: Increase demands of
+        digital natives who expect seamless, high-quality experiences. <em><strong>Response</strong></em>: Need
+        for software engineering practices to continuously adapt &amp; innovate to bridge gap between
+        capabilities &amp; expectations
+      </p>
+      <p><strong>2.1 Software Dev Process: Categorising Software</strong></p>
+      <p><em><strong>By Computation &amp; Response</strong></em>: <strong>1. Real-time</strong>: Requires
+        immediate processing &amp; response (e.g., autonomous vehicles, robotics) <strong>2.
+          Concurrent</strong>: Handles multiple processes simultaneously (e.g., chat apps, multiplayer gaming)
+        <strong>3. Distributed</strong>: Components are spread across multiple sys &amp; communicate over a
+        network (e.g., cloud storage, content delivery networks).
+      </p>
+      <p><em><strong>By Nature of Code &amp; Data</strong></em>: <strong>1. Open-source software</strong>:
+        Publicly available source code that can be modified (e.g., Linux, Apache, PostgreSQL) <strong>2.
+          Open-content Sys</strong>: Content is collaboratively created &amp; shared (e.g., Wikipedia,
+        OpenStreetMap).</p>
+      <p><em><strong>By Deployment Mode</strong></em>: <strong>1. Embedded Sys</strong>: Integrated into devices
+        for specific functions (e.g., IoT devices, medical equipment) <strong>2. Desktop apps</strong>: Designed
+        for standalone use on personal computers (e.g., Microsoft Office, Photoshop) <strong>3. Edge
+          Sys</strong>: Running on devices near data source to minimise latency (e.g., industrial sensors,
+        smart home sys) <strong>4. Cloud-native Sys</strong>: Designed specifically for cloud env, leveraging
+        distributed architectures (e.g., Netflix, Kubernetes)|</p>
+      <p><em><strong>Edge Computing Case Study</strong></em></p>
+      <p><strong>Definition:</strong> Balance computation between centralised cloud &amp; localised edge devices.
+        <strong>Use Cases:</strong> Autonomous vehicles, smart cities, real-time facial recognition.
+        <strong>Challenges:</strong> Limited processing power in edge devices (e.g., cameras, smartphones),
+        battery life, &amp; heat dissipation. <strong>Advantages:</strong> Reduced latency, improved privacy,
+        &amp; localised decision-making
+      </p>
+      <p><em><strong>Cloud Computing Case Study</strong></em></p>
+      <p><strong>Definition:</strong> Hosted on external data centres &amp; accessed over internet.
+        <strong>Characteristics</strong>: Includes vendor-managed resources like networking, storage, &amp;
+        runtime env
+        <em><strong>Models</strong></em> : <strong>1. IaaS:</strong> Infra as a Service (e.g., AWS, Google
+        Cloud) provides virtualised computing resources. <strong>2. PaaS:</strong> Platform as a Service (e.g.,
+        AWS Elastic Beanstalk, Heroku) provides platforms for app dev &amp; deployment <strong>3. SaaS:</strong>
+        Software as a Service (e.g., Google Apps, Salesforce) provides fully managed software solutions for
+        end-users.
+      </p>
+      <p><em><strong>Cloud Native Case Study</strong></em></p>
+      <p><strong>Definition:</strong> Software designed to maximise scalability &amp; flexibility in cloud env.
+        <strong>Features</strong>: Immutable infra (e.g., declarative infra w tools like Terraform);
+        Microservices-based architecture (e.g., splitting apps into independently deployable services);
+        API-driven for integration (e.g., REST, GraphQL); Service Mesh for service-to-service communication
+        (e.g., Istio); Containers for portability (e.g., Docker); Dynamically managed using orchestration tools
+        (e.g., Kubernetes). <strong>Dev Practices</strong>: CI/CD pipelines, DevOps practices, server-less
+        computing (e.g., AWS Lambda). <strong>Stack</strong>: <strong>1. Infra:</strong> Physical &amp;
+        virtualised resources (e.g., VMs, Kubernetes clusters). <strong>2. Provisioning:</strong> Tools for
+        resource provisioning (e.g., Terraform, Ansible). <strong>3. Runtime:</strong> Manages workloads (e.g.,
+        container runtimes like Docker). <strong>4. Orchestration &amp; Management:</strong> Automates
+        deployments &amp; scaling (e.g., Kubernetes, OpenShift). <strong>5. Application Dev:</strong> Tools for
+        defining &amp; building apps (e.g., Helm, Skaffold). <strong>6. Observability:</strong> For monitoring
+        &amp; analysis (e.g., Prometheus, Grafana, ELK stack)
+      </p>
+      <p><em><strong>Monolithic Design Example</strong></em>: Traditional web apps w tightly coupled architecture
+        (e.g., single server running all components)
+        <em><strong>Cloud-native Design Example</strong></em>: Modern architectures w microservices, API
+        gateways, distributed data storage (e.g., an e-commerce platform w microservices for inventory,
+        payments, &amp; recommendations).
+      </p>
+      <p><strong>2.2 Software Dev Process: Deploying Software</strong></p>
+      <p><strong>Definition</strong>: Activities that make software available for use after dev. Deployment
+        bridges acquisition of software &amp; its execution. <strong>Impacts</strong>: <em>Quality Attributes
+          (3.4)</em>. <strong>Issues</strong>: <strong>1. Driven by Software Crisis 2.0</strong>: 1) Advances
+        in hardware 2) Reduction in hardware costs &amp; increased processing power 3) Proliferation of devices
+        4) Infinite data availability &amp; demand. <strong>2. Need to Rethink Deployment</strong>: 1) Exploit
+        hardware advancements 2) Accommodate varied devices 3) Manage interconnected devices, users, &amp; apps
+        4) Efficiently handle data. <strong>Challenges</strong>: <strong>1. Integration of Internet &amp;
+          Advances</strong>: Virtual worldwide marketplace creates concerns in shifting to cloud-native
+        architectures. Affects portability. <strong>2. Large-Scale Content Delivery</strong>: Transfers of
+        data/info between end-points creates concerns w location, number of end-points, quality of service.
+        Affects availability &amp; performance <strong>3. Heterogeneous Platforms</strong>: OS/browser/platform
+        diversity &amp; combinations creates concerns w coexistence of platforms &amp; interoperability between
+        platforms. Affects interoperability <strong>4. Dependency &amp; Change Management</strong>: Multiple
+        components have interdependencies - “uses” relationship creates concerns w Handle configurations,
+        version changes(within &amp; outside components), &amp; compatibility. Affects maintainability
+        <strong>5. Coordination Among Components</strong>: Computations among components need coordination
+        creates concerns w API designs &amp; synchronous/asynchronous communication. Affects performance
+        <strong>6. Security Concerns</strong>: Privacy, authentication, authorisation, integrity. Affects
+        security &amp; usability.
+      </p>
+      <p><strong>Deployment Stages</strong>: From Code → Executable → Final Environment. How to transition between
+        these stages?<br>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*hhkhfVUqAOvjkmhECXDVAw.png"
+          alt="Bare Metal vs Virtual machines vs Containers: Choosing the Right  Infrastructure for Your Workloads | by Kaustav Bag | Medium"><br>
+        <em><strong>Deploying Mechanisms</strong></em>: <strong>1. Bare Metal</strong>: <strong>Pros</strong>:
+        Complete Control; Physical Isolation. <strong>Considerations</strong>: From code to executable -
+        catering to target platforms; customised build &amp; linking; availability of libraries &amp;
+        dependencies; Potentially wasted hardware resources; Cost; Scalability; Reduced dev productivity.
+        <strong>2. Virtual Machines</strong>: <strong>Pros</strong>: Improved resource utilisation; Reduced
+        cost; Flexible; Scalable <strong>Considerations</strong>: Full OS running inside VM; Susceptible to
+        side-channel attacks; “Noisy neighbour” problem <strong>3. Containers</strong>: <strong>Pros</strong>:
+        Lighter than VM - include only OS processes &amp; dependencies where necessary; better utilisation of
+        hardware capacity; rapid deployment. Write once run everywhere - provision containers to run apps; ideal
+        for CI/CD, Agile/DevOps practices. Granular &amp; controllable - deployment can be whole sys or elements
+        within sys; monitoring available; rollback/patch/redeploy easily. Easy integration of internet &amp;
+        related advances - build cloud-native apps. Include runtime w code - caters to heterogeneous platforms;
+        can achieve interoperability &amp; portability. Supports dependency &amp; change management - improved
+        maintainability &amp; portability. Environment Management - applies to both dev &amp; deployment (Eg.
+        Dockerfile provides env spec.). Reproducible - guaranteed to be identical on any sys that can run
+        containers. Isolation &amp; Security - avoid conflicting dependencies; can provide some sand-boxing for
+        code execution. Quick to launch; Supports DevOPs best practices; Can be used w orchestrator like
+        Kubernetes - Orchestration automates provisioning, deployment, networking, scaling, availability, &amp;
+        lifecycle management of containers; Directs how &amp; where containers run.
+        <strong>Considerations</strong>: Not suitable for all apps;Not suitable for performance-critical apps.
+        <strong>Container vs Orchestrator</strong>: <strong>Containers</strong> provide platform for building
+        &amp; distributing services; Not suited for running complex apps on its own; Often need multiple
+        containers, each doing specific tasks/providing specific services. <strong>Orchestrator</strong>
+        integrate &amp; coordinate many parts; Scale up/down deployment based on demand; Fault tolerance for
+        app; Communication among containers. Orchestrator works w containers to realise production (E.g.,
+        Container: Docker, Orchestrator: Kubernetes) <strong>4. Server-less Functions</strong>: Cloud provider
+        manages physical servers. Dynamically allocate resources on behalf of devs (or users) in production.
+        Works based on Function-As-A-Service (FAAS) - event-driven execution model (run when needed); App logic
+        deployed in containers; Containers managed by platform/service provider; Stateless apps; Ephemeral –
+        short execution times. Cloud-native dev model; Devs/enterprises don’t manage servers. Economics: Metered
+        on demand ⇒ no cost when idle (Eg: AWS Lambda). <strong>Process</strong>: 1) Devs package code in
+        containers 2) Application deployed via containers 3) Once deployed, apps respond to demand –
+        automatically scale up/down as needed; <strong>Use Cases</strong>: Batch processing of image &amp;
+        video; Scheduled data compression
+      </p>
+      <p><strong>2.3 Software Dev Process: Process Models</strong></p>
+      <p>Goal-directed &amp; Evolving Process requiring Transformation &amp; Creative Activity. <strong>Projects
+          involve people, product, technology, etc.</strong>: Reqs, design, spec, code, test cases, …; Phases,
+        activities, milestones, … ; Organisation of team, communication channels, … ; <strong>Reduces risk of
+          failure</strong>: ~20% of large projects fail; Large number of projects delayed; <strong>Framework
+          for project planning &amp; execution</strong>: Who is doing what, when &amp; how; <strong>Divide
+          software dev work into phases to improve</strong>: Design; Product management; Project management;
+        <strong>Examples</strong>: Waterfall, Spiral, Rapid Prototyping, eXtreme Programming, Rational Unified
+        Process (RUP), Test driven dev, Agile (Scrum, Crystal), etc.
+      </p>
+      <p><strong>If reqs are well-understood, fixed, &amp; effort predictable</strong>: Waterfall model; Highly
+        structured approach; Good for stable reqs &amp; familiar domain &amp; solution; Variation: Have feedback
+        loops. <strong>For fuzzy &amp; evolving reqs</strong>: Iterative &amp; incremental dev; Develop sys
+        iteratively &amp; incrementally; Learning from earlier cycles; Types: depth-first &amp; breadth-first
+      </p>
+      <p><strong>2.4 Software Dev Process: Best Practices</strong></p>
+      <p><em><strong>Agile</strong></em> : Methodology emphasising iterative dev &amp; cross-functional
+        collaboration. Individuals &amp; interactions over processes &amp; tools. Working software over
+        comprehensive documentation (fastidious paperwork, not dev docs). Customer collaboration over contract
+        negotiation. Responding to change over following plan. Focus on quick response to changes. Eg. SCRUM.
+        Work done in sprints, where subset of product backlog is cleared. Often daily 15 min SCRUM meeting.</p>
+      <p><em><strong>CI/CD</strong></em>: <strong>Continuous Integration</strong>: Dev practice requiring devs to
+        integrate code into shared repository. Each check-in is verified by an automated build, allowing teams
+        to detect problems early. <strong>Continuous delivery</strong>: above + ensuring every good build is
+        potentially ready for production release. Can be released into production at any given time.
+        <strong>Continuous deployment</strong>: above + automating release of good build to production env.
+        Released automatically into production <strong>Benefits</strong>: 1) Low-risk releases 2) Faster time to
+        market &amp; early feedback 3) Higher quality 4) Lower cost 5) Code changes to an app are released
+        automatically into production env. <strong>Use Case</strong>: Ability to get changes of all types -
+        including new features, configuration changes, bug fixes, &amp; experiments - into production, or into
+        hands of users, safely, quickly &amp; sustainably <strong>Example</strong>: Blue-Green Deployments
+      </p>
+      <p><em><strong>DevOps</strong></em>: Blends software dev &amp; operations staff &amp; tools. A set of
+        software dev practices that combine software dev (Dev) &amp; operations (Ops). Intends to reduce time
+        between committing change &amp; change release while ensuring high quality. <strong>Ops</strong>: 1)
+        Check in code 2) Pull code changes for build 3) Run tests 4) Store artifacts &amp; build repository 5)
+        Deploy &amp; release 6) Configure Env 7) Update databases 8) Update apps 9) Push to users 10)
+        Application &amp; Network Performance Monitoring. <strong>Benefits</strong>: <strong>Speed of
+          Delivery</strong>: Enables dev &amp; op teams to deliver faster for customers. CI/CD automate
+        software release process from build to deploy can quicker release new features &amp; fix bugs.
+        <strong>Reliability</strong>: CI/CD practices in testing ensure change is functional &amp; safe.
+        Monitoring &amp; logging help stay informed of performance in real-time. Contribute to reliable delivery
+        &amp; positive experience of end-users. <strong>Scale</strong>: Operating &amp; managing infra &amp; dev
+        processes w automation &amp; consistency improve scalability. IaC help to manage dev, testing, &amp;
+        production env in repeatable &amp; more efficient manner. <strong>Improved collaboration</strong>: Dev
+        &amp; op teams collaborate closely, share responsibilities, &amp; workflows. Reduces inefficiencies
+        &amp; saves time (e.g. reduced handover periods between dev &amp; ops)
+      </p>
+      <p><em><strong>Trends</strong></em>: Increasing focus on improving software engineer efficiency –
+        <strong>(Generative) AI</strong> in software dev; <strong>Automation</strong>: Know what needs to be
+        done. Do it efficiently, reliably every time! Repeated tasks. E.g., workflow automation (CI/CD, infra
+        deployment, …); <strong>Pattern Detection</strong>: Tasks adhere to rules. Exploit rule structure. E.g.,
+        identify query patterns. Sift through gigantic codebases to detect vulnerabilities;
+        <strong>Collaboration</strong>: Code sequence prediction &amp; generation. Brainstorm code solutions.
+        Rapid prototyping E.g., Copilot, ChatGPT
+      </p>
+    </div>
+    <div>
+      <p><em><strong>Pattern Detection Case Study - Vulnerability Detection</strong></em>: Vulnerabilities
+        observed to be caused by single repeating pattern. <strong>Solution</strong>: Exploit ML (+ expert
+        knowledge) to identify patterns. <strong>Mechanism Components</strong>: Encoded expert knowledge. Large
+        volumes of weak evidence. Pattern detection. Deductive &amp; inductive reasoning. Create higher-level
+        features. <strong>Flow</strong>: Code snippet → Probability of vulnerability. Code snippet → CodeQL →
+        Features → ML model → Alert / Non-alert</p>
+      <p><em><strong>Boosting Productivity Case Studies</strong></em>: <strong>1. Code efficiently</strong>:
+        Method autocompletion. Boilerplate code generation. Try various approaches quickly. <strong>2. Tackle
+          new problems, creatively</strong>: Generate &amp; explain code, configuration &amp; documentation.
+        <strong>3. Code translation</strong>: Convert code from one language to another. E.g., Legacy code →
+        Python. <strong>4. Writing maintainable code</strong>: Detect code vulnerabilities. Improve code quality
+        &amp; enforce good practices. <strong>5. Better testing</strong>: Generate unit tests for your scripts.
+        Improve test coverage
+      </p>
+      <p><strong>3.1 SRS: Overview</strong></p>
+      <p><em><strong>Definition</strong></em>: <strong>IEEE Standard Glossary of Software Engineering
+          Terminology</strong> - 1) condition or capability needed by user to solve problem or achieve an
+        objective 2) condition or capability that must be met or possessed by sys or sys component to satisfy
+        contract, standard, spec, or other formally imposed documents 3) documented representation of condition
+        or capability as in (1) or (2). <strong>Sommerville &amp; Peter Sawyer</strong> - Reqs are Spec of what
+        should be implemented. They are descriptions of how sys should behave or of sys property or attribute.
+        They may be constraint on dev process or of sys.</p>
+      <p><em><strong>Examples</strong></em>: <strong>Usage Centric</strong>: As user, I can upload an image into
+        sys so that I can showcase my photography skills to world. <strong>Product Centric</strong>: The sys
+        will support range of graphic file formats up to 20 mb in size; [Refinement] The sys will support
+        following file formats: jpeg, png, tiff, bmp; [Refinement] The sys will support maximum resolution of
+        5184 × 3888 pixels</p>
+      <p><strong>3.2 SRS: End-to-End</strong></p>
+      <p><em><strong>Sources</strong></em>: <strong>1. Documents:</strong> Descriptions of current or competing
+        products; standards/regulations; help desk problem reports. <strong>2. Interviews:</strong> Methods w
+        focus groups; use case workshops; Product champions as key customer representatives. <strong>3.
+          Questionnaires &amp; Marketing Surveys:</strong> Pilot to clarify qn, can be challenging to craft
+        clear ones. <strong>4. Event-Response Tables:</strong> Identify external stimuli &amp; describe sys
+        responses. <strong>5. Prototyping:</strong> Useful across reqs gathering, design, &amp; implementation
+        phases. <strong>6. Observation – Watch Users Do Their Jobs:</strong> Workflow diagrams; conducting “day
+        in life” studies; analyse information available to users when performing tasks.</p>
+      <p><em><strong>Process</strong></em>: <strong>1. Elicitation</strong>: Discover reqs via interviews,
+        workshops, event-response tables, focus groups, prototypes, watching users, sys interface analysis, UI
+        analysis, document analysis. <strong>2. Analysis</strong>: Analyse, decompose, derive, understand,
+        negotiate, identify gaps. Clarifies Elicitation. <strong>3. Specification</strong>: Written &amp;
+        illustrated reqs for comprehension &amp; use. Close gaps in analysis. <strong>4. Validation</strong>:
+        Confirm that we have correct set of reqs. Rewrites spec. Reevaluates Analysis. Confirms &amp; Corrects
+        elicitation.</p>
+      <p><em><strong>Outcome</strong></em>: <strong>1. Rights, Responsibilities &amp; Agreements</strong>: All
+        major stakeholders confident of dev within balanced schedule, cost, functionality &amp; quality.
+        <strong>2. SRS</strong>: A set of precisely stated services &amp; constraints that software must
+        satisfy. A complete description of behaviour of software. <strong>3. Change Control</strong>: Process to
+        ensure that changes to product or sys are introduced in controlled &amp; coordinated manner.
+      </p>
+      <p><em><strong>SRS Case Study</strong></em>: <strong>IEEE 830-1993 - Recommended Practice for SRS</strong> -
+        {1. Introduction - 1.1 Purpose, 1.2 Document Conventions, 1.3 Intended Audience &amp; Reading
+        Suggestions, 1.4 Project Scope, 1.5 References 2. Overall Description - 2.1 Product Perspective, 2.2
+        Product Features, 2.3 User Classes &amp; Characteristics, 2.4 Operating Environment, 2.5 Design &amp;
+        Implementation Constraints, 2.6 Assumptions &amp; Dependencies 3. System Features - 3.1 Functional Reqs
+        4. External Interface Reqs - 4.1 User Interfaces, 4.2 Hardware Interfaces, 4.3 Software Interfaces, 4.4
+        Communications Interfaces 5. Nonfunctional Reqs - 5.1 Performance Reqs, 5.2 Safety Reqs, 5.3 Security
+        Reqs, 5.4 Software Quality Attributes 6. Other Reqs - Appendix A: Glossary; Appendix B: Analysis Models;
+        Appendix C: TBD List} <strong>SRS Components</strong>: Interfaces; Functional Capabilities; Performance
+        Levels; Data Structures/Elements; Safety; Reliability; Security/Privacy; Quality; Constraints &amp;
+        Limitations <strong>SRS vs. Product Backlog</strong>: <strong>1. Product Backlog</strong>: Repository of
+        JTBD; Facilitate prioritisation of work; Facilitate planning. <strong>2. SRS</strong>: In-depth
+        description of software product to be developed; Direct/Indirect reqs of sys; Only tells what JTBD.
+        <strong>Good Qualities</strong>: Accurate; Complete; Modifiable; Ranked; Testable; Traceable;
+        Unambiguous; Verifiable; Valid
+      </p>
+      <p><strong>3.3 SRS: Types</strong><br>
+        <img src="https://testomat.io/wp-content/uploads/2022/11/Software_requirements_definition.png"
+          alt="enter image description here"><br>
+        <strong>1. Business</strong>: Why organisation is implementing sys, e.g., reduce staff costs by 25%.
+        <strong>2. User</strong>: Goals user must be able to perform w product, e.g., check for flight using
+        website. <strong>3. Functional</strong>: Behaviour product will exhibit, e.g., passengers shall be able
+        to print boarding passes. <strong>4. Quality Attributes</strong>: How well sys performs, e.g., mean time
+        between failure ≥ 100 hours. A type of non-functional reqs. <strong>5. System</strong>: Hardware or
+        software issues, e.g., invoice sys must share data w purchase order sys. Affects functional reqs.
+        <strong>6. Data</strong>: Describes data items or structures, e.g., product number is alphanumeric.
+        <strong>7. External Interfaces</strong>: Connections between sys &amp; env, e.g., must import files as
+        CSV. Affects functional reqs. <strong>8. Constraints</strong>: Limitations on design &amp;
+        implementation choices, e.g., must be backward compatible. <strong>9. Business Rules</strong>: Actual
+        policies/regulations. Constrain biz, user, &amp; functional reqs.
+      </p>
+      <p><strong>3.4 SRS: Quality Attributes</strong></p>
+      <p>Different apps have varying quality attributes. <strong>1. Embedded Software</strong>: Performance,
+        efficiency, reliability, robustness, safety, security <strong>2. Web Applications</strong>:
+        Availability, integrity, interoperability, performance, scalability, security, usability <strong>3.
+          Desktop &amp; Mobile Software</strong>: Performance, security, usability.</p>
+      <p><em><strong>External</strong></em>: Observed when software is executing. Impacts UX. Develops user’s
+        perception of software quality. <strong>1.1 Availability</strong>: Measure of planned uptime where sys
+        is fully operational. Increased redundancy to meet availability reqs. Hot-backup &amp; failover
+        mechanisms increase complexity. <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <semantics>
+                  <mrow>
+                    <mtext>Availability</mtext>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mtext>Uptime</mtext>
+                      <mtext>Uptime&nbsp;+&nbsp;Downtime</mtext>
+                    </mfrac>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\text{Availability} =
+                    \frac{\text{Uptime}}{\text{Uptime + Downtime}}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut"
+                  style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord text"><span
+                    class="mord">Availability</span></span><span class="mspace"
+                  style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace"
+                  style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut"
+                  style="height: 1.40555em; vertical-align: -0.481108em;"></span><span class="mord"><span
+                    class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span
+                        class="vlist-r"><span class="vlist" style="height: 0.924439em;"><span class=""
+                            style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span
+                              class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                  class="mord text mtight"><span
+                                    class="mord mtight">Uptime&nbsp;+&nbsp;Downtime</span></span></span></span></span><span
+                            class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span
+                              class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class=""
+                            style="top: -3.44611em;"><span class="pstrut" style="height: 3em;"></span><span
+                              class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                  class="mord text mtight"><span
+                                    class="mord mtight">Uptime</span></span></span></span></span></span><span
+                          class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist"
+                          style="height: 0.481108em;"><span class=""></span></span></span></span></span><span
+                    class="mclose nulldelimiter"></span></span></span></span></span></span>
+        <strong>1.2 Installability</strong>: Ease of installing sys for end-user. <strong>1.3
+          Integrity</strong>: Prevent information loss &amp; preserve data correctness. <strong>1.4
+          Interoperability</strong>: System readiness for exchanging data &amp; services w other software
+        &amp; hardware. <strong>1.5 Performance</strong>: System responsiveness &amp; UX <strong>1.6
+          Reliability</strong>: Probability of software executing w/o failure for specific period of time.
+        <strong>1.7 Robustness</strong>: Degree of sys performance when faced w invalid inputs, defects, &amp;
+        attacks. <strong>1.8 Safety</strong>: Prevents injury or damage to people or property. <strong>1.9
+          Security</strong>: Authorisation, authentication, confidentiality. Protect data from unauthorised
+        access, allow only authorised use, prevent data tampering. <strong>1.10 Usability</strong>:
+        User-friendliness &amp; ease of use. Measured by, 1) Average time for task completion 2) Number of
+        errors made by users 3) Waiting times 4) Ease of learning &amp; use (e.g., tooltips, autocompletion).
+      </p>
+      <p><em><strong>Internal</strong></em>: Not directly observed when software is executing. Perceived by devs
+        &amp; maintainers. Encompass design aspects that may impact external attributes. <strong>2.1
+          Efficiency</strong>: How well sys utilises hardware, network, etc. <strong>2.2
+          Modifiability</strong>: How easily designs &amp; code can be understood, changed, &amp; extended.
+        <strong>2.3 Portability</strong>: Effort needed to migrate software from one env to another. <strong>2.4
+          Reusability</strong>: Effort required to convert software component for use in other apps.
+        <strong>2.5 Scalability</strong>: Ability to grow to accommodate more users, servers, locations, etc.,
+        w/o compromising performance or correctness. <strong>2.6 Verifiability</strong>: How well software
+        (components) can be evaluated to demonstrate that it functions as expected.
+      </p>
+      <p><em><strong>Security Reqs in SRS</strong></em> : Often overlooked if not explicitly defined in SRS.
+        Features not explicitly stated (e.g., intrusion detection) have high likelihood of exclusion during
+        design. Specifying security req in SRS ensures acceptance tests include them, improving security
+        assurance. Business owners aware of trade-offs (e.g., usability vs. security risks) should help in
+        specifying. <strong>Examples</strong>: <strong>1. Authentication</strong>: Strategies for password
+        recovery, account lockout, session expiry, &amp; re-authentication. <strong>2. Auditing &amp;
+          Logging</strong>: Activity logging specifics, detail levels, &amp; access permissions. <strong>3.
+          Intrusion Monitoring</strong>: Define suspicious activities, potential fraud, &amp; response
+        mechanisms.</p>
+      <p><em><strong>Performance Reqs</strong></em>: Influences <strong>1. Architecture</strong>: May require
+        replicated databases/caching <strong>2. Hardware</strong>: Latency needs may dictate specific
+        configurations. <strong>3. Deployment</strong>: Decisions between monolithic/microservice architectures
+      </p>
+      <p><em><strong>Types of Scaling</strong></em>: <strong>1. Vertical Scaling</strong>: Adding capacity to
+        existing machines. Advantages: Easier to maintain. Disadvantages: Single point of failure. <strong>2.
+          Horizontal Scaling</strong>: Adding more machines (nodes). Advantages: Improved resilience &amp;
+        fault tolerance. Disadvantages: Increased cost &amp; complexity.</p>
+      <p><strong>3.5 SRS: Management</strong></p>
+      <p><em><strong>Process</strong></em>: 1) Collect Initial Reqs 2) Analyse Reqs 3) Define &amp; Record 4)
+        Prioritise Reqs 5) Agree on &amp; Approve Reqs 6) Trace Reqs to Work Items 7) Query Stakeholders
+        Post-Implementation 8) Utilise Test Management 9) Assess Impact of Changes 10) Revise Reqs 11) Document
+        Changes <strong>Tools</strong>: Word; Spreadsheet; GitHub; JIRA; JAMA; RequisitePro</p>
+      <p><em><strong>Prioritisation</strong></em>: Quality attributes often conflict, requiring prioritisation
+        based on app reqs. Balance FR &amp; NFR. Address safety, security, performance, &amp; scalability
+        trade-offs.</p>
+      <p><em><strong>Traceability</strong></em>: <strong>Elements</strong>: UIN, type, high-level description,
+        priority. <strong>Links to</strong>: Use case references. Design doc, code modules, test cases.
+        <strong>Example</strong>: Can NFRs trace to code?
+      </p>
+      <p><em><strong>Validation vs. Verification</strong></em>: <strong>1. Validation</strong>: Ensures reqs align
+        w biz objectives. <strong>2. Verification</strong>: Ensures reqs correctly written (e.g., completeness,
+        correctness, feasibility). <strong>Techniques</strong>: <strong>A. Informal</strong>: Peer desk-check,
+        pass-around, walkthrough. <strong>B. Formal</strong>: Inspection w checklists &amp; formal processes.
+      </p>
+      <p><em><strong>Documentation</strong></em>: <strong>1. Textual</strong>: Vision &amp; Scope, Use Case, SRS,
+        Product backlog. <strong>2. Visual</strong>: Structured Models - Data flow diagrams, entity-relationship
+        diagrams. Object-oriented Models - State-transition diagrams, dialog maps. <strong>3.
+          Recollect</strong>: Feature List, User Story</p>
+      <p><em><strong>AI Use</strong></em>: <strong>1. Reqs Elicitation</strong>: Persona spec as domain experts.
+        Context-based qn generation using LLMs. <strong>2. Analysis</strong>: Automated refinement, sub-task
+        identification, tagging. <strong>3. Predictive Analytics</strong>: Identify &amp; prioritise successful
+        reqs. <strong>4. Automated Tagging &amp; Categorisation</strong>: Labelling &amp; binning based on req
+        type, priority, &amp; other characteristics. Improves traceability of reqs. Enhances ability to link
+        test cases, code modules, &amp; design documents to specific reqs. Eg., Automating tracing of testing
+        processes to reqs.<strong>5. NLP in Reqs Analysis</strong>: Analysing natural language reqs to identify
+        ambiguities, Conflicting reqs, Missing elements. Ensures reqs are clear, consistent, &amp; complete.
+        <strong>6. Predictive Analytics for Reqs</strong>: Predicts which reqs likely to be implemented
+        successfully. Helps in identifying high-priority reqs. Assists in focusing resources on most critical
+        &amp; feasible reqs. <strong>Considerations</strong>: Be cautious of non-deterministic outputs. Address
+        potential non-explainable chains of thought in AI predictions to ensure transparency.
+      </p>
+      <p><strong>4.1 Software Architecture Design: Overview</strong></p>
+      <p>The overall organisation of sys. A high-level design blueprint to guides dev process. <strong>Bass,
+          Clements &amp; Kazman Definition</strong>: Structure/Structures of program/computing sys, comprising
+        Software components, externally visible properties of components &amp; relationships among components.
+        <strong>Characteristics</strong>: <strong>1. Represents Structure</strong>: Depicts organisation of data
+        &amp; program components necessary to build software. Focuses on both structural &amp; behavioural
+        aspects of sys. <strong>2. High-Level Design</strong>: Provides overarching view of sys, avoid low-level
+        implementation details. Establish foundation for detailed sys design. <strong>3. System
+          Organisation</strong>: Defines overall layout &amp; interaction of different components within sys.
+      </p>
+      <p><em><strong>Parts</strong></em>: <strong>1. Component</strong>: Models app-specific function; <strong>2.
+          Connector</strong>: Models interactions between components for transfer of control &amp;/or data;
+        <strong>3. Configuration</strong>: Define topology/structure of sys.
+      </p>
+      <p><em><strong>Reference Architectures</strong></em>: Common architectural framework used across multiple
+        apps. Provides standard structure that can be reused in different but similar contexts. Explains
+        high-level structures of apps within domain. Facilitates consistency, best practices &amp; efficiency
+        across projects. <strong>Examples</strong>: <strong>1. Web Applications</strong>: Common frameworks like
+        MVC</p>
+      <p><em><strong>Architectural Patterns</strong></em>: Reusable solution to recurring architectural problem.
+        Forms basis for detailed architectural design. Address specific app problems within given context.
+        Provides structured approach to manage limitations &amp; constraints.</p>
+      <p><em><strong>Control Flow</strong></em>: Reflect computation order. Describes how focus of control moves
+        throughout execution. Data may accompany control.</p>
+      <p><em><strong>Data Flow</strong></em>: Reflect data availability, transformation &amp; latency. Explains
+        how data moves through collection of computations. As data moves, control is activated.</p>
+      <p><em><strong>Call &amp; Return</strong></em>: Control moves from one component to another &amp; back.
+        <strong>1. Hierarchical</strong>: Shows control flow w master-control &amp; layered subprograms.
+        <strong>2. Non-Hierarchical</strong>: Illustrates interaction between manager objects &amp; procedural
+        calls.
+      </p>
+      <p><em><strong>Message &amp; Event</strong></em>: Components communicate via event notifications, message
+        passing, RPC, or other protocols. Can be async/sync. Can involve point-to-point communication.
+        <strong>1. Message</strong>: Data sent to specific address. In message-driven sys, each component has
+        unique address. Components await messages &amp; react to them. <strong>2. Event</strong>: Data emitted
+        by component for anyone
+      </p>
+    </div>
+    <div>
+      <p>listening to consume. Represent state change or record of an action. Immutable
+        &amp; Ordered in sequence.
+      </p>
+      <p><em><strong>Push vs. Pull Communication</strong></em>: <strong>1. Push</strong>: Source actively sends
+        data to broker for consumers. <strong>2. Pull</strong>: Consumers request data from broker as needed.
+      </p>
+      <p><em><strong>Understanding Architectures</strong></em>: 1) Divide &amp; Conquer 2) Abstraction 3) Increase
+        Cohesion by ensuring related elements work closely together. 4) Reduce Coupling by minimising
+        interdependencies between components. 5) Reuse Components 6) Flexibility ensures adaptability for future
+        changes.</p>
+      <p><em><strong>General Approach</strong></em>: Start with System Context - Identify scope, users, &amp;
+        dependencies. Add Containers - Highlight logical units like apps, databases, &amp; file sys; Include key
+        technology choices. Zoom in on Components - Show decomposition into components &amp; their
+        responsibilities; Identify interactions &amp; technology decisions. Provide Code-Level Details - Drill
+        down into implementation as needed for precision. Can Combine steps for simplicity.</p>
+      <p><em><strong>Decomposition, Componentizing &amp; Packaging</strong></em>: <strong>1. Horizontal
+          Slicing</strong>: Design by layers. Layers include controllers, services, &amp; repositories.
+        <strong>2. Vertical Slicing</strong>: Design by feature. Focus on specific features, integrating all
+        relevant layers.
+      </p>
+      <p><em><strong>Modularity</strong></em>: <strong>Benefits</strong>: Shorter dev time. Better flexibility.
+        Improved comprehensibility. <strong>Principles</strong>: Decompose large sys into smaller, manageable
+        chunks w well-defined interfaces (APIs). Allocate functions to modules &amp; specify interactions via
+        APIs. <strong>Key Idea</strong>: Manage complexity by breaking sys into modular components.</p>
+      <p><em><strong>Cohesion</strong></em>: <strong>1. Functional</strong>: Performs one computation w/o side
+        effects. <strong>2. Layer</strong>: Related services grouped; strict hierarchy between higher &amp;
+        lower levels. <strong>3. Communicational</strong>: Operates on same data. <strong>4.
+          Sequential</strong>: Procedures executed in sequence w one output feeding next input. <strong>5.
+          Procedural</strong>: Procedures called one after another. <strong>6. Temporal</strong>: Procedures
+        executed in same phase of execution (e.g., initialisation). <strong>7. Utility</strong>: Related
+        utilities grouped when stronger cohesion NA.</p>
+      <p><em><strong>Coupling</strong></em>: <strong>1. Content</strong>: One component modifies another’s
+        internal data. <strong>2. Common/Global</strong>: Modules share global vars. <strong>3.
+          Control</strong>: One module dictates another’s behaviour via flags. <strong>4. Data</strong>:
+        Modules share data via parameters. <strong>5. External</strong>: Dependencies on external sys (e.g., OS,
+        shared libraries). <strong>6. Temporal</strong>: Actions occur together due to timing, not logic.
+        <strong>7. Inclusion/Import</strong>: Module includes/imports other modules (e.g., package or library).
+      </p>
+      <p><em><strong>Modular Monoliths</strong></em>: Nested models (Eg,. separation by technical logic +
+        separation by biz logic) aim to reduce tight coupling via APIs for communication between domains. Each
+        domain has hidden implementation, encapsulated &amp; accessed only through public-facing API. Modular
+        boundaries improve maintainability &amp; scalability within monolithic application.</p>
+      <p><em><strong>Model-Code Gap</strong></em>: Models &amp; source code often fail to align perfectly.
+        Architecture models include abstract concepts like components, design decisions, &amp; constraints that
+        are not directly represented in source code. Source code represents concrete, machine-executable
+        implementations.</p>
+      <p><em><strong>Architecture Diagrams</strong></em>: visual representation of sys. Highlight big picture for
+        dev teams &amp; stakeholders. Act as shared vision to guide implementation. Aid in technical discussions
+        about feature implementations. Serve as map for navigating source code. Facilitate onboarding for new
+        team members. <strong>Diagram Hierarchy:</strong> <strong>1. System Context</strong> - High-level
+        overview showing sys users &amp; dependencies. <strong>2. Containers</strong> - Represents logical
+        deployment units (e.g., apps, databases, file sys). <strong>3. Components</strong> - Shows interactions
+        &amp; responsibilities within each container. <strong>4. Code</strong> - Details actual implementation.
+      </p>
+      <p><em><strong>Best Practices:</strong></em> Ensure diagrams are titled &amp; labeled for clarity; Include
+        legend to explain meaning of arrows, lines, &amp; shapes; Avoid using ambiguous terms like “business
+        logic” w/o explanation; Ensure consistency in directionality &amp; relationships; Provide enough detail
+        to be informative but avoid overwhelming reader.</p>
+      <p><em><strong>Drawing Diagrams</strong></em>: Verify sufficient information, ensure architectural drivers
+        (FR, constraints, scenarios) are clear. Decompose sys iteratively 1) Choose element to refine 2)
+        Identify drivers &amp; concepts 3) Instantiate architectural elements &amp; allocate responsibilities.
+        Verify, refine, &amp; documenting results. <strong>Parallelism:</strong> Large-scale sys require
+        parallel design activities, which must be merged into consistent architecture.</p>
+      <p><em><strong>Issues</strong></em>: <strong>Unexplained Notations:</strong> Use consistent colour coding,
+        shapes, &amp; symbols w legend. <strong>Ambiguity:</strong> Clearly define elements &amp; their
+        relationships. <strong>Omission of Technology Choices:</strong> Explicitly include tools, frameworks,
+        &amp; options. <strong>Mixing Abstraction Levels:</strong> Avoid combining high-level &amp; low-level
+        details in same diagram. <strong>Overcomplication/Oversimplification:</strong> Strike balance between
+        clarity &amp; detail.</p>
+      <p><strong>4.2 Software Architecture Design: Architecture Styles</strong></p>
+      <p>Architecture styles can be segmented into 2 groups - code division/sys deployment</p>
+      <p><em><strong>Code Division</strong></em>: <strong>1. Technical Partitioning</strong>: Focuses on
+        separation of concerns. May align w team’s expertise: Eg., Frontend devs, Backend devs, Database
+        administrators. <strong>2. Domain Partitioning</strong>: Aligned w domain. Logical components map to
+        problem: Eg., Customer, Payment, Shipping. <strong>3. Visual Partitioning</strong>: 1) Presentation
+        which focuses on UI. 2) Services which contains app logic. 3) Persistence which manages storage &amp;
+        retrieval of data.</p>
+      <p><em><strong>System Deployment</strong></em>: <strong>1. Monolithic</strong>: Deploys all logical
+        components as single unit. App runs as one process. <strong>2. Distributed</strong>: Consists of
+        independent logical components. Logical components run as individual processes. Communication happens
+        over network.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Code Deployment</th>
+            <th>Code Partitioning</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monolith</td>
+            <td>Technical</td>
+            <td>Layered</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Domain</td>
+            <td>Modular Monolith</td>
+          </tr>
+          <tr>
+            <td>Distributed</td>
+            <td>Technical</td>
+            <td>Event-driven</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Domain</td>
+            <td>Microservices</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>4.2 Software Architecture Design: Layered</strong></p>
+      <p>Organised as layers of components. Supports independent dev &amp; evolution of different sys parts,
+        depending on how app code is packaged. Comprises one or more layers for software under dev, w each layer
+        having distinct &amp; specific responsibility. <strong>Examples</strong>: 2-tiered/3-tiered/n-tiered
+        architecture.</p>
+      <p><em><strong>Typical Design</strong></em>: Each layer communicates w layer directly above. Layers
+        communicate through interfaces. Highest level layers can communicate w 1 or more layers below.
+        Presentation -&gt; Business -&gt; Data.</p>
+      <p><em><strong>1-tier Architecture</strong></em>: Presentation, Application, &amp; Resource are merged into
+        one layer <strong>1. Advantages</strong>: Performance optimisation, no context switching overheads.
+        <strong>2. Disadvantages</strong>: Difficult to modify, impractical in modern sys.
+      </p>
+      <p><em><strong>2-tier Architecture</strong></em>: Historically emerged w PC. Client communicates directly w
+        server. Server contains app layer &amp; resource management layer. Separates presentation layer which
+        resides in client. Client has ability to further process info provided by server. Clients can be thin
+        (limited functionality)/fat (rich functionality) <strong>1. Advantages</strong>: Performance
+        optimisation by grouping app &amp; resource layers, portable across platforms. <strong>2.
+          Disadvantages</strong>: Limited scalability, increased maintenance complexity w distributed clients.
+      </p>
+      <p><em><strong>3-tier Architecture</strong></em>: Historically emerged with increase in network bandwidth
+        provided by LANs. Separates Presentation, App, &amp; Resource Management Layers. Adds App Layer between
+        Presentation &amp; Resource Management layers as Middleware. Middleware between clients &amp; server
+        integrates between different information services. Resource management layer consists of all servers
+        being integrated. <strong>1. Advantages</strong>: Scalability, modularity. <strong>2.
+          Disadvantages</strong>: Expensive communication, challenges w internet-based integrations.</p>
+      <p><em><strong>n-tier Architecture</strong></em>: Extends 3-tier by adding more layers (e.g., distributed
+        sys or cloud services). Increases flexibility but adds complexity.</p>
+      <p><strong>4.3 Software Architecture Design: Pipe &amp; Filter</strong></p>
+      <p>Data enters sys (from data source) &amp; flows through filters one at a time until assigned to some final
+        destination (data sink). A series of transformations on successive input data occurs. Data source, data
+        sink &amp; filters have set of inputs (read) &amp; set of outputs (produce). <strong>Example</strong>:
+        Incoming data → Decrypt (Filter) → Authenticate (Filter) → De-Duplicate (Filter) → Output cleaned data.
+      </p>
+      <p><em><strong>Typical Design</strong></em>: Divide app’s task into several self-contained data process
+        steps &amp; connect steps to data processing pipeline via intermediate data buffers. Data should flow in
+        <strong>streams</strong>: Good for processing images, audio, video, or batch data. Good for limited user
+        interaction, like batch processing sys.
+      </p>
+      <p><em><strong>Filters</strong></em>: Transforms input streams; Computes incrementally, output begins before
+        input is consumed; Independent, sharing no state with other filters; Apply operations; Expect input in
+        particular format; Produce output in defined format; Independent of other components data</p>
+      <p><em><strong>Connectors (Pipes)</strong></em>: Each pipe transmits outputs of one filter to inputs of
+        another.</p>
+      <p><em><strong>Class Responsibility Collaborators (CRC) for Pipe &amp; Filter</strong></em>: <strong>1.
+          Filter</strong>: Responsibility - Gets input data; Performs function on its input data; Supplies
+        output data. Collaborator: Pipe. <strong>2. Pipe</strong>: Responsibility - Transfers data; Buffers
+        data; Sync active neighbours Collaborators: Data Source, Data Sink, Filter. <strong>3. Data
+          Source</strong>: Responsibility - Delivers input to processing pipeline Collaborator: Pipe.
+        <strong>4. Data Sink</strong>: Responsibility - Consumes output Collaborator: Pipe.
+      </p>
+      <p><em><strong>Azure Functions Case Study</strong></em>: <strong>Domain</strong>: Image Processing.
+        <strong>Pipe</strong>: Azure Storage Queue. <strong>Filter</strong>: Azure Functions for 1) Content
+        moderation 2) Resizing 3) Reorientation 4) Watermarking 5) CDN publication <strong>Example
+          Workflow</strong>: Unprocessed images → Azure Storage Queue → Azure Function (Content Moderation) →
+        Azure Storage Queue → Azure Function (Resize) → Azure Storage Queue → Final Processed Images.
+      </p>
+      <p><em><strong>Processing Invoices Example</strong></em>: Each filter incrementally processes data &amp;
+        passes it to next filter via pipe. Control is distributed s.t. each filter can run when it has necessary
+        data. Data sharing is strictly limited to what is transmitted on pipes. <strong>Workflow</strong>: Read
+        issued invoices → Identify payments → Find payments due → Issue payment reminder.</p>
+      <p><strong>4.4 Software Architecture Design: MVC</strong></p>
+      <p>Support user’s mental model of relevant info. Enable user to inspect &amp; edit info. Utilises an
+        <strong>observer pattern</strong> for sync between Model &amp; View. <strong>Components</strong>:
+        <strong>1. View</strong> - Handles UI elements like buttons, text boxes, &amp; widgets; Observes Model
+        changes &amp; updates UI; May overlap w Controller in tightly coupled sys; Variants include input
+        processing via View. <strong>2. Controller</strong> - Acts as intermediary, coordinating between View
+        &amp; Mode;. Updates Model based on user actions; Triggers change in View.<strong>3. Model</strong> -
+        Encapsulates biz logic &amp; data persistence; Maintains app state &amp; notifies observers of changes.
+        <strong>Examples</strong>: GUI-based sys for enhancing maintainability.
+      </p>
+      <p><em><strong>MVC Variants</strong></em>: Flux, MVA (Model-View-Adapter), MVP (Model-View-Presenter),
+        MVP/PM → MVVM (Model-View-ViewModel), WebMVC → SPA (Single Page Application)</p>
+      <p><em><strong>Benefits</strong></em>: <strong>1. Separation of Concerns</strong>: Output/UI presentation
+        independent of input handling. Application state separate from user interaction <strong>2.
+          Extensibility</strong>: Adding new View/Controller pair/functionality simplified <strong>3.
+          Restricted Communication</strong>: Reduces complexity &amp; side effects. <strong>4.
+          Testability</strong>: Components are easy to mock for testing <strong>6. Support</strong>: Many
+        frameworks (e.g., Angular, React) provide built-in MVC solutions.</p>
+      <p><em><strong>Web MVC Case Study</strong></em>: Server hosts Model. Client interacts with server via HTTP
+        requests. <strong>Controller</strong>: Handles HTTP requests, selects Model, prepares View, maps
+        requests to specific handlers, delegates actions (retrieving data/rendering templates). Often split into
+        1) Page Controller that handles specific page logic 2) Front Controller that manages HTTP
+        requests.<strong>View</strong>: Renders HTTP response (e.g., HTML, JSON); May use templates to render
+        model contents <strong>Model</strong>: Implements biz logic &amp; manages persistence. Can use database
+        directly (e.g., MySQL) or via ORM. Needs to manage concurrent modifications <strong>Examples</strong>:
+        <strong>Traditional Web Apps</strong> - Require full-page reloads for each interaction (e.g., GET/POST
+        requests) <strong>Modern Web Apps</strong> - Use AJAX to fetch data w/o refreshing page; JSON responses
+        processed dynamically by client.
+      </p>
+      <p><em><strong>SPA Case Study</strong></em>: A JS program downloaded &amp; continuously running in browser.
+        Allows queries to be sent &amp; data retrieved without refreshing page. Provides fluid UX by avoiding
+        full-page reloads. Frameworks have build step to generate static bundles of HTML, CSS, &amp; JS. Hosted
+        via “View Controller” (index.html). Use JS logic to make HTTP API requests to “API Controllers” that
+        respond w JSON data.<strong>Advantages</strong> - Offers smooth &amp; responsive UX; Saves bandwidth by
+        only transferring data instead of full page reloads; Reduces perceived latency for end users.
+        <strong>Disadvantages</strong> - Development complexity is higher than traditional applications;
+        Requires JS to function; Vulnerable to Cross-Site Scripting (XSS) attacks.
+      </p>
+      <p><strong>4.5 Software Architecture Design: REST</strong></p>
+      <p>Defines constraints for transferring, accessing, &amp; manipulating textual data representations
+        (hypermedia) across networks in stateless manner. Provides rule set for creating web services but is not
+        an architecture by itself. Enable uniform interoperability between different applications on internet.
+        Utilises HTTP for data access &amp; manipulation via methods like: <strong>GET:</strong> Retrieve data.
+        <strong>PUT:</strong> Update existing resources. <strong>POST:</strong> Create new resources.
+        <strong>DELETE:</strong> Remove resources. <strong>Advantages</strong>: Sys less tightly coupled,
+        enabling scalability, usability, accessibility &amp; mash-up ability. Stateless interactions improve sys
+        reliability &amp; scalability. <strong>Disadvantages</strong>: Statelessness may reduce performance due
+        to repetitive data transfer. Standardised URI usage may decrease efficiency compared to app-specific
+        formats.
+      </p>
+      <p><em><strong>Constraints</strong></em>: <strong>1. Client-Server Architecture:</strong> Separation of
+        concerns between client (presentation) &amp; server (data storage). Benefits: Portability of UI;
+        Scalability of server components. Independent evolution to support Internet-scale sys. <strong>2.
+          Statelessness:</strong> Each interaction is self-contained (contains all information within query
+        params, headers, or URI); No client state is maintained on server. Benefits: Frees server resources
+        quickly; Resilient to partial failures; Easier monitoring &amp; debugging (focus on single-request
+        data). <strong>3. Cacheable:</strong> Server responses specify cache-ability &amp; duration. Benefits:
+        Improves network efficiency by reducing repetitive interactions; Enhances user-perceived performance.
+        Drawbacks: Potential to serve stale data. <strong>4. Layered System:</strong> Organise app as network of
+        layers. Each layer only interacts with its immediate neighbour. Benefits: Improved sys complexity
+        management; Intermediary layers (e.g., caching, load balancing) enhance performance &amp; availability.
+        <strong>5. Uniform Interface:</strong> Ensures consistent way of interacting w resources. Resource-based
+        - Stable &amp; unique resource identifiers (URIs). Self-describing messages - Include all necessary
+        processing information. Hypermedia-driven app state - Use links to expose resources &amp; state
+        transitions. Benefits: Decouples implementation from services provided. Suitable for large-grained
+        hypermedia data transfer. <strong>6. Code-on-Demand (Optional):</strong> Allows executable code (e.g.,
+        JS) to be downloaded by clients for added functionality. Benefits: Simplifies client’s initial
+        implementation; Provides extensibility
+      </p>
+    </div>
+    <div>
+      <p><strong>5.1 Microservices Architecture: Overview</strong></p>
+      <p>A single application as suite of small services. Each microservice offers well-defined business
+        capability. Each microservice is developed &amp; deployed independently. Communication through
+        well-defined mechanisms like HTTP resource APIs. <strong>Characteristics</strong>: Highly cohesive &amp;
+        loosely coupled; Independent dev &amp; deployment- Services share no implementation details &amp; rely
+        on communication. Owned by small, autonomous teams. <strong>Boundaries</strong>: aligned with business
+        capabilities.</p>
+      <p><em><strong>Netflix Microservices Case Study</strong></em>: Over 1,000 microservices.
+        <strong>Examples</strong> Creating main menu list of movies; Determining subscription status for
+        relevant content; Recommending videos based on watch history; Billing credit cards for subscription
+        renewals; Monitoring &amp; migrating users to optimal Content Delivery Appliances (CDA); Storing &amp;
+        transcoding videos for various devices; Adding copyright markers for DRM.
+      </p>
+      <p><em><strong>Identifying Microservices</strong></em>: <strong>1. Domain-Driven Design (DDD)</strong>:
+        Complex sys are collection of sub-domains. <strong>Domain</strong>: The problem space.
+        <strong>Sub-Domain</strong>: Specific focus areas, e.g., Sales, Warehouse, Finance. <strong>Bounded
+          Context</strong>: Encapsulation of processes &amp; models. <strong>Aggregates</strong>: Units of
+        transactional consistency. <strong>2. Event Storming</strong>: Focus on discovering domain events.
+        Commands cause events; events may trigger compensating actions. Define microservice boundaries by
+        identifying consistent contexts. <strong>Example</strong>: Product added to cart, Shipping details
+        confirmed, Order delivered.
+      </p>
+      <p><strong>5.2 Microservices Architecture: Data Patterns</strong></p>
+      <p><em><strong>Database-Per-Service Pattern</strong></em>: <strong>Description</strong> - Each service owns
+        &amp; embeds its data, ensuring loose coupling. Services have independent access &amp; control over
+        their respective databases. <strong>Benefits</strong>- <strong>1. Loose Coupling</strong>: Independent
+        scaling of services &amp; databases. <strong>2. Technology Flexibility</strong>: Each service can choose
+        its own database type (e.g., relational, NoSQL) based on requirements. <strong>3. Resilience</strong>:
+        Faults in one database don’t affect others. <strong>Challenges</strong> - Managing hundreds of database
+        clusters is expensive &amp; complex. Data consistency across services must be ensured via communication
+        mechanisms.</p>
+      <p><em><strong>Data Delegate Pattern</strong></em>: <strong>Description</strong> - A dedicated service
+        (delegate) manages shared data. Other services interact only with delegate service, rather than directly
+        accessing shared data. <strong>Benefits</strong> - <strong>1. Centralised Data Management</strong>:
+        Simplifies control &amp; governance over shared data. <strong>2. Consistency</strong>: Prevents multiple
+        services from modifying same data directly. <strong>3. Loose Coupling</strong>: Reduces dependencies
+        among services. <strong>Challenges</strong> - Introduces additional latency due to delegate acting as an
+        intermediary. Can become bottleneck if not properly scaled.</p>
+      <p><em><strong>Data Lake Pattern</strong></em>: <strong>Description</strong>- A centralised, queryable
+        repository aggregates data from multiple services. Data streaming tools like Kafka, RabbitMQ, IBM MQ, or
+        Apache Pulsar are used to stream relevant data into lake. <strong>Benefits</strong> - <strong>1. Unified
+          View</strong>: Provides consolidated view of all service data for analytics &amp; reporting.
+        <strong>2. Optimised Querying</strong>: Aggregated &amp; indexed data improves query performance.
+        <strong>3. Scalability</strong>: Can handle large volumes of data for batch processing or analytics.
+        <strong>Challenges</strong> - Requires reliable data streaming infra. Data governance &amp; security can
+        become complex.
+      </p>
+      <p><em><strong>Sagas Pattern</strong></em>: <strong>Description</strong> - Manages distributed transactions
+        through series of steps &amp; compensating actions (undo operations) in case of failure.
+        <strong>Benefits</strong>- <strong>1. Decentralised Coordination</strong>: Eliminates need for
+        centralised transaction manager. <strong>2. Flexibility</strong>: Handles long-running transactions
+        effectively. <strong>3. Resilience</strong>: Enables partial rollbacks, reducing failure impact.
+        <strong>Example</strong> - Airline Reservation: 1) Book seat. 2) Process payment with loyalty points. 3)
+        Send notification. 4) Compensate (e.g., refund) if payment fails.
+      </p>
+      <p><em><strong>Event Sourcing</strong></em>: <strong>Description</strong> - State changes are stored as
+        events rather than persisting current state. Projections are used to derive current state from event
+        log. <strong>Benefits</strong> - <strong>1. Complete History</strong>: Provides full audit trail of
+        state changes. <strong>2. Flexibility</strong>: Enables replaying events to rebuild state in case of
+        failure. <strong>3. Scalability</strong>: Works well with distributed sys as events are immutable.
+        <strong>Examples</strong>: <strong>Chess</strong>: Moves reconstruct board state. <strong>Accounting
+          Journals</strong>: Balances derived from transaction logs.
+      </p>
+      <p><em><strong>CQRS (Command Query Responsibility Segregation)</strong></em>: <strong>Description:</strong>
+        - Separates read &amp; write paths. Commands trigger events, &amp; materialised views are created for
+        querying. <strong>Benefits</strong> - <strong>1. Independent Scaling</strong>: Read &amp; write models
+        can scale independently. <strong>2. Optimised Query Performance</strong>: Precomputed materialised views
+        improve efficiency. <strong>3. Flexibility</strong>: Different database types can be used for reads
+        &amp; writes.</p>
+      <p><strong>5.3 Microservices Architecture: Deployment Patterns</strong></p>
+      <p><em><strong>Service Instance Per Host</strong></em>: <strong>Description</strong> - Each service instance
+        is deployed in isolation, either on VM or in container. <strong>1. Service Instance Per VM</strong>:
+        Netflix packages services as EC2 AMIs using Aminator. <strong>2. Service Instance Per
+          Container</strong>: Containers include required libraries &amp; applications managed by tools like
+        Kubernetes. <strong>Benefits</strong> - <strong>1. Isolation</strong>: Each service has dedicated
+        resources, improving fault tolerance. <strong>2. Flexibility</strong>: Allows independent deployment
+        &amp; scaling. <strong>3. Portability</strong>: Containers can run across various env.</p>
+      <p><em><strong>Immutable Infra</strong></em>: ** Description** - Components are immutable; modifications
+        require recreation of infra. <strong>Benefits</strong> - <strong>1. Predictability</strong>: Immutable
+        components reduce configuration drift &amp; errors. <strong>2. Reproducibility</strong>: Ensures
+        consistent behaviour across env. <strong>3. Simplified Updates</strong>: Changes are applied by creating
+        new instances, avoiding live modifications.</p>
+      <p><em><strong>Infra as Code (IaC)</strong></em>: <strong>Description</strong> - Infra is defined &amp;
+        managed using machine-readable files (e.g., Terraform scripts). <strong>Benefits</strong>- <strong>1.
+          Version Control</strong>: Infra changes can be tracked &amp; managed like application code.
+        <strong>2. Automation</strong>: Enables consistent &amp; repeatable provisioning of resources.
+        <strong>3. Scalability</strong>: Simplifies management of large-scale sys.
+      </p>
+      <p><em><strong>Service Collaboration</strong></em>: <strong>Description</strong> - Patterns for coordinating
+        service interactions. <strong>1. Orchestration</strong> - A central controller manages workflows across
+        services <strong>2. Choreography</strong>: - Services interact independently, relying on events &amp;
+        triggers <strong>Benefits</strong> - <strong>1. Orchestration</strong>: Provides centralised control
+        &amp; visibility of workflows. <strong>2. Choreography</strong>: Enables decentralised interactions,
+        reducing dependencies.</p>
+      <p><em><strong>Service Communication</strong></em>: <strong>Description</strong> - Patterns for
+        inter-process communication. <strong>1. Request-Response</strong> (Synchronous): TripManagement requests
+        passenger info from Passenger Management. <strong>2. Event-Driven</strong> (Asynchronous): Order events
+        trigger shipping processes. <strong>Benefits</strong> - <strong>1. Request-Response</strong>: Ensures
+        immediate responses for critical queries <strong>2. Event-Driven</strong>: Decouples services &amp;
+        supports real-time data propagation.</p>
+      <p><em><strong>Service Discovery</strong></em>: <strong>Description</strong> - Patterns to locate &amp;
+        manage service instances. <strong>1. Client-Side Discovery</strong>: Clients query service registry to
+        find available instances. <strong>2. Server-Side Discovery</strong>: Load balancer queries registry
+        &amp; routes requests to appropriate instances. <strong>3. Service Registry</strong>: Zookeeper, Consul,
+        Kubernetes. <strong>Benefits</strong>- <strong>1. Dynamic Scalability</strong>: Automatically adapts to
+        changes in service instances. <strong>2. Improved Fault Tolerance</strong>: Supports redundancy through
+        registries.</p>
+      <p><em><strong>API Gateway</strong></em>: <strong>Description</strong> - A single entry point for all
+        requests into sys. <strong>Responsibilities</strong>- Routing, authentication, monitoring, caching.
+        <strong>Benefits</strong>- <strong>1. Simplified Client Interaction</strong>: Hides internal
+        complexities of microservices. <strong>2. Enhanced Security</strong> - Centralises authentication &amp;
+        access control. <strong>3. Load Balancing</strong>: Distributes traffic efficiently across services.
+      </p>
+      <p><strong>6.1 Events Driven Architecture: Events</strong></p>
+      <p>Events are ways for software component to let rest of sys know that something important has just
+        happened. Through events, software components pass information to other components. <strong>Initiating
+          Event</strong>: Originates from an end user &amp; typically kicks off business process.
+        <strong>Derived Event</strong>: Internal events generated in response to initiating event. Typically,
+        software component responds to an initiating event &amp; broadcasts what it did to rest of sys, within
+        scope of initiating event. Events usually contain data, represented in key/value format.
+        <strong>Key</strong>: For identification, routing, &amp; aggregation operations on events with same key.
+        <strong>Value</strong>: The complete details of event. <strong>Example</strong>: An online order, which
+        includes all order information.
+      </p>
+      <p><em><strong>Events Types</strong></em>: <strong>1. Unkeyed Events</strong> - Describe singular statement
+        of fact. Example: Key: N/A, Value: ISBN: 372719, Timestamp: 1538913600. <strong>2. Entity
+          Events</strong> - Represent unique thing, keyed on unique ID of that thing. Example: Key: ISBN:
+        372719, Value: Author: Adam Bellemare. <strong>3. Keyed Events</strong>: Contain key but do not
+        represent an entity. Used for partitioning event stream to ensure data locality within single partition.
+        Example: Key: ISBN: 372719, Value: UID: A537FE.</p>
+      <p><strong>6.2 Event Driven Architecture: Overview</strong></p>
+      <p><strong>Definition</strong>: Applications designed based on exchange of events.
+        <strong>Components</strong>: <strong>1. Event Producers</strong> - Publish data to streams or queues.
+        <strong>2. Event Brokers</strong> - Receive, store, &amp; route data for consumption; May act as an
+        “event bus” for routing information <strong>2. Event Consumers</strong>- Listen for &amp; consume event
+        data. <strong>Advantages</strong> - High performance: Asynchronous processing; Scalability: Decoupling
+        enables independent scaling of services; Fault tolerance: If one service fails, others continue to
+        operate; Evolvability: Easy to add new functionality by creating derived events.
+        <strong>Challenges</strong> - Complexity: Asynchronous communication increases sys complexity; Testing:
+        High effort required for testing independent, decoupled services.
+      </p>
+      <p><em><strong>EDA v.s. Microservices</strong></em>: <strong>1. EDA</strong> - Relies on asynchronous
+        communication; Responds to things that have happened (event processing) <strong>2.
+          Microservices</strong> - Built on synchronous communication (occasionally asynchronous); Handles
+        requests or commands for actions that need to happen (request processing).</p>
+      <p><em><strong>EDA + Microservices</strong></em>: <strong>Definition</strong> - A hybrid architecture
+        combining microservices &amp; EDA principles. <strong>Workflow</strong> 1) Producer microservices
+        publish events to streams 2) Consumer microservices process events from input streams 3) Event data
+        serves as both storage &amp; communication mechanism.</p>
+      <p><strong>6.3 Event Driven Architecture: Event Broker</strong></p>
+      <p>An Event Broker receives events, stores them in partitions/queues. &amp; Enables consumption based on
+        topics. <strong>Key Features</strong> - 1) Immutability: Events cannot be modified after publication; 2)
+        Replayability: Consumers can re-read any event for state recovery or debugging; 3) Strict Ordering:
+        Events in stream partition are delivered in same order as published; 4) Infinite Retention: Event
+        streams can retain data indefinitely. <strong>Examples</strong>: RabbitMQ; Kafka; Azure Event Hubs; AWS
+        EventBridge <strong>Frameworks</strong>: Spring Cloud Stream; Axon Framework <strong>Monitoring
+          Tools</strong>: Prometheus; Elastic Stack (ELK); New Relic.</p>
+      <p><em><strong>Partition Example - Kafka</strong></em>: Producers distribute events across partitions;
+        Consumers read from partitions; Scalability achieved by adding machines &amp; rebalancing.</p>
+      <p><strong>7.1 Scalability: Overview</strong></p>
+      <p>“Scalability is property of sys to handle growing amount of work by adding resources to sys.” Increase
+        capacity in an app-specific dimension by managing resources like CPU, memory &amp; servers
+        <strong>Strategy 1</strong>: Replicate software processing resources to increase throughput.
+        <strong>Example</strong>: Increase number of requests sys can process in time period; Manage larger
+        volumes of data. <strong>Strategy 2</strong>: Optimise available resources <strong>Example</strong>: Use
+        more efficient algorithms; Add database indexes for faster queries; Rewrite servers in faster
+        programming languages; Real-world analogy: Allocate more traffic lanes for high-demand directions during
+        peak hours (morning/evening).
+      </p>
+      <p><em><strong>Supermarket Chain Case Study</strong></em>: Opening new stores. Increasing number of
+        self-checkout kiosks in every store. <strong>Software Requirements</strong>: Handle increased volume
+        from item scanning without decreased response time; Process &amp; store larger data volumes from
+        increased sales; Manage inventory, accounting, planning, &amp; more; Evolve ordering predictions to
+        anticipate sales &amp; stock needs; Generate real-time (daily/hourly) sales summaries from each store,
+        region, &amp; country; Compare trends &amp; identify unusual events (e.g., unexpected weather
+        conditions, large event crowds); Help affected stores respond quickly.</p>
+      <p><em><strong>Scale Cube</strong></em>: <strong>1. X-axis:</strong> Horizontal scaling (identical
+        application copies) <strong>2. Y-axis:</strong> Functional division (different functions/services)
+        <strong>3. Z-axis:</strong> Data distribution.
+      </p>
+      <p><em><strong>Increasing Responsiveness</strong></em> Use caching. Acknowledge requests without immediate
+        database persistence. Send data to queue for asynchronous database writing.</p>
+      <p><strong>7.2 Scalability: App Scaling</strong></p>
+      <p>Extends stateless, load-balanced, cached architecture. Services call dependent services that are also
+        replicated &amp; load-balanced. Providing replicas for web clients &amp; for mobile clients each of
+        which can be scaled independently based on load experienced. Two replicated services. Each load balanced
+        &amp; employs caching to provide high performance &amp; availability. Both utilise core service that
+        provides database access. <strong>Example:</strong> Amazon calling 100+ services per user request.</p>
+      <p><em><strong>Swim Lanes Architecture</strong></em>: <strong>Description</strong> - Isolate groups of
+        services within boundaries to prevent failure propagation; Each swim lane for tranche of customers.
+        <strong>Applications:</strong> Region-specific requirements, faster responses. <strong>Example:</strong>
+        Netflix architecture.
+      </p>
+      <p><strong>7.3 Scalability: Service Scaling</strong><br>
+        Monoliths grow in complexity with additional features. Suffices if request loads stay relatively low. If
+        request loads grow: Requests take longer to process. Single server becomes overloaded &amp;
+        bottlenecked.</p>
+      <p><em><strong>Scale Up</strong></em>: Upgrade server hardware. <strong>Example</strong> Upgrade from
+        t3.xlarge (4 CPUs, 16GB memory) to t3.2xlarge (8 CPUs, 32GB memory).</p>
+      <p><em><strong>Scale Out</strong></em>: Replicate service &amp; distribute requests among replicas.
+        <strong>Reqs</strong> - <strong>1. Load Balancer:</strong> Distribute user requests &amp; relay
+        responses. User requests are routed to replicas via load balancer. Load balancer relays responses back
+        to client. <strong>2. Session Store:</strong> Maintain user session data accessible across replicas.
+        Manages unique user sessions for applications. Load balancer must allow servers to share requests
+        evenly. (Eg., Shopping cart data must be stored for any replica to access.) <strong>Challenges:</strong>
+        Adding service instances increases processing capacity, but database response time may still limit sys.
+        <strong>Solutions:</strong> Query database less frequently using caching; Scale out database using
+        distributed databases <strong>Example</strong>: If N replicas handle R requests, each server processes
+        R/N requests.
+      </p>
+      <p><em><strong>Caching</strong></em>: Stores commonly accessed database results in memory for faster
+        retrieval. Processing logic should check cache before querying database. Cached data must be refreshed
+        or invalidated appropriately. <strong>Example:</strong> Store weather forecast data until it expires.
+      </p>
+      <p><strong>7.4 Scalability: Database Scaling</strong></p>
+      <p>2 main ways to solve this. Scale up with more powerful data stores. Scale out with distributed databases.
+      </p>
+      <p><em><strong>Read Replicas</strong></em>: <strong>Configuration</strong> - Primary node handles writes;
+        Secondary nodes serve reads. <strong>Replication</strong> - Asynchronous changes replicated to secondary
+        <strong>Example</strong> Geographically distributed replicas for global clients.
+      </p>
+      <p><em><strong>Partitioning</strong></em>: Similar to sharding. <strong>1. Horizontal Partitioning</strong>
+        - Rows divided across partitions based on specific criteria (e.g., hash function on primary key/row
+        value). <strong>2. Vertical Partitioning:</strong> Columns divided into partitions (e.g., static vs.
+        dynamic data)</p>
+    </div>
+    <div>
+      <p><strong>8. Asynchronous Communication</strong></p>
+      <p>Communication can be Synchronous/Asynchronous. Can have single/multiple Receivers. Can be
+        Persistent/Transient. Async is “Fire-&amp;-forget communication”; When software component broadcasts
+        information, it does not wait for response or care if recipient is available. <strong>Examples</strong>
+        - Persistent Asynchronous: Email; Persistent Synchronous: Messaging; Transient Asynchronous: UDP;
+        Transient Synchronous: RPC.</p>
+      <p><em><strong>Async vs Sync</strong></em>: <strong>1. Async</strong>: Communication includes lag between
+        message sent &amp; received/responded. Caller continues execution without waiting. Supports independent
+        sender &amp; receiver functioning. One-to-many communication. <strong>Example</strong>: AMQP <strong>2.
+          Sync</strong>: Caller sends message &amp; waits for receiver to respond. Involves request-response
+        patterns. <strong>Example</strong>: HTTP/HTTPS <strong>Advantages</strong> - Better responsiveness:
+        Faster response time for requests; Better availability: Components do not depend on availability of
+        other components. <strong>Trade-offs</strong> - More complex error handling compared to synchronous
+        communication.</p>
+      <p><em><strong>HTTP/HTTPS Case Study</strong></em>: <strong>1. Sync Request-Reply</strong>: Client (e.g.,
+        web browser) sends resource request to server. Server sends back response or an error message. Resources
+        can be - Simple files (e.g., HTML); Dynamically generated responses. <strong>2. Async
+          Request-Reply</strong>: <strong>A.</strong> Client sends request. API responds w 202 (Accepted)
+        &amp; status link. Client polls status endpoint using HTTP GET requests. Pending: Returns HTTP 202.
+        Complete: Returns HTTP 302 (redirects to resource). <strong>B.</strong> Asynchronous API endpoint
+        accepts client requests &amp; queues them. Backend worker processes queue. Status endpoint monitors 1)
+        Request completion 2) Response provision or resource redirection 3) Pending status includes HTTP 202
+        &amp; ETA.</p>
+      <p><em><strong>Events vs Messages</strong></em>: <strong>Similarities</strong>: Use asynchronous
+        communication; Decouple services; Carry information between services. <strong>Differences</strong>:
+        <strong>Event</strong>: Represents fact or state change. Represents something that has occurred.
+        Broadcasted using Pub-Sub patterns (e.g., Kafka Topics). <strong>Message</strong>: Represents request
+        (e.g., command or query). Represents request for action or data. Delivered via point-to-point
+        interactions (e.g., AWS SQS).
+      </p>
+      <p><em><strong>Tenant Manager Case Study</strong></em>: <strong>Req</strong> - Tenant Manager Service
+        ensures all domain services delete or anonymise tenant-specific data. Notification Service sends
+        deletion confirmation email. <strong>Design 1</strong> - Tenant Manager publishes
+        <code>TenantDeleted</code> event; Domain services consume &amp; react to event; Notification Service
+        sends email after deletion. <strong>Revised Design</strong> - Tenant Manager sends direct messages to
+        services; Waits for acknowledgments from domain services; Sends message to Notification Service after
+        confirmations.
+      </p>
+      <p><em><strong>Topics vs Queues</strong></em>: <strong>1. Topic</strong> - Supports one-to-many
+        communication; Allows non-sequential processing with unique offsets. <strong>2. Queue</strong> -
+        Supports single-receiver processing. Enforces FIFO order.</p>
+      <p><em><strong>Protocols &amp; Brokers</strong></em>: Protocol is message formatting &amp; broker is message
+        medium <strong>1. Single Receiver Setup</strong> - Point-to-point communication; Ensures exactly one
+        consumer &amp; single message processing. <strong>2. Multiple Receiver Setup</strong>: Pub/Sub mechanism
+        allows broadcasting to multiple subscribers.</p>
+      <p><em><strong>Kafka Case Study</strong></em>: <strong>Description</strong> - Open-source platform,
+        originally developed by LinkedIn. Donated to Apache. Supports horizontal scaling via multiple brokers.
+        <strong>Structure</strong> - Events categorised into topics &amp; partitions; Events with same key
+        routed to same partition. <strong>Benefits</strong> - Enables non-downtime scaling; Each broker
+        communicates to maintain cluster.
+      </p>
+      <p><em><strong>AMQP – Advanced Message Queuing Protocol Case Study</strong></em>: <strong>Features</strong>
+        - Peer-to-peer communication. Asynchronous messaging protocol. Messages routed via exchanges to queues.
+        Support asynchronous persistent communication. Intermediate storage for message while sender/receiver
+        are inactive. Communicate by inserting messages in queues. Sender is only guaranteed that message will
+        be eventually inserted in recipient’s queue. No guarantees on when\if message will be read
+        <strong>Exchange Types</strong>: <strong>1. Direct</strong>: Routes based on exact key match. <strong>2.
+          Fanout</strong>: Broadcasts to all bound queues. <strong>3. Topic</strong>: Wildcard match between
+        routing key &amp; binding pattern. <strong>Example</strong>: RabbitMQ
+      </p>
+      <p><em><strong>Persistent vs Transient Communication</strong></em>: <strong>1. Persistent</strong> -
+        Messages stored at intermediate hops until processed. Guarantees eventual delivery. <strong>2.
+          Transient</strong> - Temporary buffering; discarded if undeliverable. Requires active sender &amp;
+        receiver.</p>
+      <p><em><strong>Persistence Combinations</strong></em>: <strong>1. Persistent Asynchronous</strong> -
+        Non-blocking sender; Guarantees eventual delivery. <strong>2. Persistent Synchronous</strong> - Blocking
+        sender until receipt acknowledgment. <strong>3. Transient Asynchronous</strong> - Non-blocking sender;
+        messages discarded if receiver inactive. <strong>4. Transient Synchronous</strong> - Blocking sender;
+        acknowledgment based on delivery or response.</p>
+      <p><strong>9 Messaging Patterns</strong></p>
+      <p>Enables Async Communication. <strong>Process</strong> - Components/Services send packets of data
+        (messages). Messages are payloads like strings, byte arrays, records, or objects. <strong>Enterprise
+          Integration:</strong> Enabled through messaging technology. Use of technology to tightly connect
+        everything in an enterprise: Applications, data, clouds, APIs, processes, devices. Seamless sharing of
+        information between sys. MOM (Message-Oriented Middleware) providing messaging capabilities.</p>
+      <p><em><strong>Enterprise Integration Patterns (EIPs)</strong></em>: Collection of technology-independent
+        solution to integration problems. Provides common language for Devs &amp; App architects.
+        Vendor-independent. <strong>Examples</strong>: Message Channel; Point-to-Point Channel; Pub-Sub Channel;
+        Message; Message Endpoint</p>
+      <p><em><strong>Message Construction</strong></em>: <strong>Header:</strong> Structural information (e.g.,
+        type, origin, destination, size). <strong>Payload:</strong> Actual information.
+        <strong>Properties:</strong> Optional metadata for filtering. <strong>Types</strong> - TexT: Java String
+        (e.g., XML content); Map: Name-value pairs; Bytes: Stream of uninterpreted bytes; Stream: Stream of
+        primitive values; Object: Serialisable Java object. Empty: Contains only header fields &amp; properties.
+      </p>
+      <p><em><strong>Message Channels</strong></em>: Connect senders &amp; receivers. One-directional. Two-way
+        communication requires Request &amp; Reply channels. Correlation Identifier Used to match replies to
+        requests. <strong>Request/Reply Process:</strong> Requestor assigns unique Request ID. sends message to
+        jms/RequestQueue. Replier stores Request ID as Correlation ID in reply. Replier replies to
+        jms/ReplyQueue address in request message. Requestor processes reply using Correlation ID.
+        <strong>Request-Reply chaining</strong>: When request causes reply, &amp; reply is in turn another
+        request that causes another reply, &amp; so on. Useful for message traceability <strong>Special Purpose
+          Channels</strong>: <strong>1. Invalid Message Channel</strong>: Handles erroneous messages.
+        <strong>2. Dead Letter Channel (DLQ)</strong>: Manages undelivered messages. Messages are redriven back
+        to source/another queue. <strong>Datatype Channels:</strong> Handles specific data types.
+        <strong>Example</strong>: RabbitMQ Direct exchange uses routing keys for targeted delivery.
+      </p>
+      <p><em><strong>Message Routing</strong></em>: Routers process &amp; forward messages Simple Routers route
+        messages from one inbound channel to one or more outbound channels. Composed Routers combine multiple
+        simple routers to create more complex message flows. <strong>1. Content-Based Router:</strong> Routes
+        based on message content. Has to have knowledge of all possible recipients &amp; their capabilities
+        <strong>2. Context-Based Router:</strong> Handles failover/load balancing. <strong>3. Message
+          Filter:</strong> Eliminates unwanted messages. Only single output channel. If message content
+        matches criteria specified by Message Filter, message is routed to output channel, otherwise message is
+        discarded <strong>Pub-Sub Channels w Filter</strong>: Sends messages to all subscribers.
+      </p>
+      <p><em><strong>Content-Based Router vs PubSub + Filter</strong></em>: <strong>Content-Based Router</strong>:
+        Exactly one consumer receives each message; Central control &amp; maintenance - predictive routing;
+        Router needs to know about participants. Router may need to be updated if participants are added or
+        removed; Often used for biz transactions, e.g. orders. Generally more efficient with queue-based
+        channels. <strong>Pub-Sub + Filter</strong>: More than one consumer can consume message; Distributed
+        control &amp; maintenance - reactive filtering; No knowledge of participants required; Adding or
+        removing participants is easy; Often used for even notifications or informational messages; Generally
+        more efficient with pub/sub channels.</p>
+      <p><em><strong>Message Transformation</strong></em>: <strong>Translator:</strong> Converts between formats
+        (e.g., EDI to XML). <strong>Canonical Data Model:</strong> Provides common format for all sys.
+        <strong>Scatter-Gather Pattern</strong> <strong>Process:</strong> Broadcasts single message, gathers
+        responses, &amp; aggregates them. <strong>Example:</strong> Mulesoft ESB.
+      </p>
+      <p><em><strong>Message Endpoints</strong></em>: Interface between application &amp; messaging sys. Can be
+        used to send messages or receive them, but one instance does not do both. An endpoint is
+        channel-specific, so single application would use multiple endpoints to interface with multiple
+        channels. In JMS, two main endpoint types are MessageProducer, for sending messages, &amp;
+        MessageConsumer, for receiving messages. <strong>Consumers</strong>: <strong>1. Polling</strong>:
+        Controls message consumption rate. Proactively reads messages once it is ready to consume them
+        <strong>2. Event-Driven</strong>: Reacts to incoming messages.
+      </p>
+      <p><strong>10 Object-Interaction Patterns</strong></p>
+      <p>A design pattern is solution to recurring problem in context. <strong>Key Elements</strong>: <strong>1.
+          Context</strong> - Situation in which pattern applies; Should be recurring <strong>2.
+          Problem</strong> - Goal to achieve in context; Includes any applicable constraints <strong>3.
+          Solution</strong> - General design to address problem; Ensures goal achievement while satisfying
+        constraints. <strong>Benefits</strong>: A toolkit of tested solutions for common software design
+        problems. Shared vocabulary for efficient communication among team members. <strong>Creational</strong>:
+        Object creation (e.g., Factory). <strong>Structural</strong>: Relationships between objects (e.g.,
+        Facade). <strong>Behavioural</strong>: Object interactions (e.g., Observer).</p>
+      <p><em><strong>Shapes with Colours Case Study</strong></em>: <strong>Context</strong> - A geometric shape
+        class has subclasses for Circle &amp; Square; Additional requirement: Red &amp; Blue colours for shapes
+        <strong>Problem</strong> - Adding new shapes (e.g., triangle) or new colours (e.g., green) exponentially
+        increases subclasses. Example: Adding triangle creates 2 more subclasses (one per colour); Adding new
+        colour creates 3 more subclasses (one per shape). <strong>Solution</strong> - Identify varying
+        dimensions (shapes &amp; colours); Use object composition instead of inheritance: Separate one dimension
+        into its own class hierarchy. Reference other dimension through objects of new hierarchy.
+      </p>
+      <p><em><strong>Bridge Pattern</strong></em>: Decouple abstraction from implementation. Enables extensibility
+        by creating separate hierarchies for abstraction &amp; implementation.</p>
+      <p><em><strong>Proxy Pattern for BookSearch</strong></em>: Introduces an intermediary (Proxy) between client
+        &amp; base object. Clients reference Proxy, which holds reference to base object &amp; Implements same
+        interface as base object.</p>
+      <p><em><strong>BookSearch Case Study</strong></em>: A <code>BookSearch</code> class with method
+        <code>getBook(String ISBN)</code>. Increased usage demands enhanced performance. Solution needs to:
+        Implement caching (check cache before searching). Keep <code>BookSearch</code> cohesive. Respect SRP.
+        Allow third-party cache libraries. Use Proxy Pattern to solve.
+      </p>
+      <p><em><strong>Adapter Pattern</strong></em>: Allow incompatible interfaces to work together.
+        <strong>Implementation</strong>: <strong>Service</strong>: The useful (legacy/3rd-party) class.
+        <strong>Adapter</strong>: Implements client interface. Translates client calls into service-compatible
+        format. <strong>Examples</strong>: Shape compatibility adjustments. Square peg into round hole analogy.
+      </p>
+      <p><em><strong>Facade Pattern</strong></em>: Provides unified interface to simplify sub-sys usage. Clients
+        interact with facade, which handles sub-sys interactions transparently. <strong>Examples</strong>: API
+        Gateway as facade at architecture level; JDBC in Java.</p>
+      <p><em><strong>Observer Pattern</strong></em>: One-to-many dependency for change notification. <strong>Key
+          Components</strong>: <strong>Register/Attach</strong>: Observers subscribe to subjects.
+        <strong>Notify</strong>: Subject notifies observers of changes. <strong>Event</strong>: Triggers in
+        subjects. <strong>Update</strong>: Observers update their state. <strong>Models</strong>: <strong>1.
+          Pull Model</strong>: Observers retrieve detailed information. <strong>2. Push Model</strong>:
+        Subject pushes specific information. <strong>Examples</strong>: MVC pattern. Event-driven architectures
+        (e.g., Android, iOS).
+      </p>
+      <p><em><strong>Mediator Pattern</strong></em>: Encapsulates object interaction to promote loose coupling.
+        Components interact via mediator, not directly. Mediator maintains references to components &amp;
+        orchestrates communication. <strong>Examples</strong>: Spring MVC’s Dispatcher Servlet. DOM event
+        management in web pages.</p>
+      <p><em><strong>Data Transfer Object (DTO)</strong></em>: Encapsulates data for efficient transmission
+        between nodes. Reduce remote calls by bundling data. No business logic. Contains accessors &amp;
+        serialisation methods. <strong>Application</strong>: Used in architectures where network overhead needs
+        optimisation.</p>
+    </div>
+  </div>
+</body>
+
+</html>
